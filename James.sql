@@ -137,7 +137,6 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Lalis','lalis@gmail.com','lalis'),(2,'Uno','uno@gmail.com','uno'),(3,'dos','dos@mail.com','dos'),(4,'alice','alice@gmail.com','alice'),(5,'','',''),(6,'tres','tres@gmail.com','tres'),(7,'aa','aa@mail.cm','aa'),(8,'Jose','jose@james.com','jose'),(9,'alan','alan@mail.com','alan');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

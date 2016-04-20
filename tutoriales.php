@@ -7,11 +7,11 @@ require_once('header.php');
 		require_once('includes/conexion.php');
 		$curso = $_GET['id_curso'];
 		$tutorial = $_GET['id_tutorial'];
-		$sql = "SELECT * FROM tutorial WHERE tutorial.id_tutorial = '$tutorial' and tutorial.id_curso = '$curso'";
+		$sql = "SELECT * FROM Tutorial WHERE Tutorial.id_tutorial = '$tutorial' and Tutorial.id_curso = '$curso'";
 		$res = mysql_query($sql,$con) or die("Error consultando: ".mysql_error());
 		$reg = mysql_fetch_array($res) or die("Error al convertir los registros");
 
-		$sql2 = "SELECT * FROM curso WHERE id_curso = '$curso'";
+		$sql2 = "SELECT * FROM Curso WHERE id_curso = '$curso'";
 		$res2 = mysql_query($sql2,$con) or die("Error consultando: ".mysql_error());
 		$reg2 = mysql_fetch_array($res2) or die("Error al convertir los registros");
  ?>
@@ -26,13 +26,11 @@ require_once('header.php');
   </head>
 
   <body>
-    <br>
-    <br>
-		<br>
+  
 		<div class="row">
 			<div class="panel panel-default col-md-8 col-md-offset-2">
 				<div class="panel-heading">
-					<h3 class="panel-title"><?php echo "Curso ".$reg2['nombre']." - ".$reg['nombre'] ?></h3>
+					<h3 class="panel-title"><?php echo "Curso ".$reg2['nombre_curso']." - ".$reg['nombre_tutorial'] ?></h3>
 				</div>
 				<div class="panel-body">
 					<video controls>
@@ -40,11 +38,11 @@ require_once('header.php');
 					</video>
 
 					<h3 class="text-danger">Descripción</h3>
-					<?php echo $reg['descripcion']; ?>
+					<?php echo $reg['descripcion_tutorial']; ?>
 				</div>
 
 				<div class="panel-footer">
-					<a href="<?php echo 'cursos/'.$curso.'/'.$tutorial.'.mp4'; ?>" class="btn btn-default" download="<?php echo $reg2['nombre'].' - '.$reg['nombre'].'.mp4'; ?>"> Descargar </a>
+					<a href="<?php echo 'cursos/'.$curso.'/'.$tutorial.'.mp4'; ?>" class="btn btn-default" download="<?php echo $reg2['nombre_curso'].' - '.$reg['nombre_tutorial'].'.mp4'; ?>"> Descargar </a>
 				</div>
 			</div>
 		</div>

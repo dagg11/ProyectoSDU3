@@ -4,7 +4,7 @@ require_once('includes/conexion.php');
 
 	$email = $_POST['email'];
 	$pass = $_POST['pass'];
-	$sql = "SELECT * FROM usuarios WHERE correo = '$email'";
+	$sql = "SELECT * FROM Usuario WHERE correo = '$email'";
 	$res = mysql_query($sql,$con);
 
 if(mysql_num_rows($res) == 0) {
@@ -13,7 +13,7 @@ if(mysql_num_rows($res) == 0) {
 	"document.location.href = 'index.php';</script>";
 }else {
 	$reg = mysql_fetch_array($res) or die("Error al convertir en registros");
-			if($reg['pass'] == $pass){
+			if($reg['pass'] == md5($pass)){
 
 				$_SESSION['nombre'] = $email;
 				header("Location: home.php");

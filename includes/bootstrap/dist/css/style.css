@@ -34,7 +34,7 @@ footer {
   border-radius: 1px;
   padding: 10px 16px;
 }
-  
+
 .botn-lg {
   font-size: 13px;
   line-height: 1.33;
@@ -92,4 +92,9 @@ footer {
 }
 .botn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
+}
+
+video{
+  min-width: 100%;
+  max-width: 100%;
 }

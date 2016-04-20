@@ -24,19 +24,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-	    <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Cursos <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-        	  <li><a href="php.php">PHP</a></li>
-        	  <li class="divider"></li>
-          	  <li><a href="java.php">Java</a></li>
-        	  <li class="divider"></li>
-           	  <li><a href="html.php">HTML</a></li>
-        	  <li class="divider"></li>
-        	</ul>
-            </li>
+	    <li><a href="curso.php">Cursos</a></li>
             <li><a href="quiensomos.php">¿Quiénes somos?</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="socios.php">Instituciones</a></li>

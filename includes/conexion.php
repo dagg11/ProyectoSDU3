@@ -1,5 +1,5 @@
 <?php
-	$con = mysql_connect('localhost','root','alan') or die("Error al conectar"+mysql_error());
+	$con = mysql_connect('localhost','root','') or die("Error al conectar"+mysql_error());
 	$db = "James";
 	//if(isset($con)){
 	//	echo "Conexión realizada exitosamente";

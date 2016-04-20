@@ -28,7 +28,13 @@ if($_SESSION['nombre']){
 </head>
 <body>
 
-<?php echo $_SESSION['nombre'] ?>
+<?php echo $_SESSION['nombre']; 
+
+require_once('includes/conexion.php');
+$correo = $_SESSION['nombre'];
+$sql_curso = "select * from usuarios as u, curso as c, curso_has_usuario cu where u.id_usuario = cu.id_usuario and c.id_curso = cu.id_curso and u.curso = $correo;";
+$res_curso = mysql_query($sql_curso, $con);
+?>
 
 
 
@@ -49,7 +55,7 @@ if($_SESSION['nombre']){
 	</ul>
           <ul class="nav navbar-nav navbar-right">
 	    <li>
-		<li><a href="salir.php"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['nombre'] ?> </a></li>
+		<li><a href="salir.php"><span class="glyphicon glyphicon-user"></span> <?php echo $correo ?> </a></li>
 		<li><a href="salir.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 	    </li>
 	  </ul>
@@ -65,17 +71,68 @@ if($_SESSION['nombre']){
 		<div class="container text-center">
 
 		<div id="curso" class="col-sm-10 text-left">
+		<br>
 		      <h2>Crear nuevo curso</h2>
-		      <p>Aqui va formulario para nuevo curso</p>
-		      <hr>
-					<hr>
+		      <br>
+		      <form  action="crearCurso.php" method="post">
+		      	<table>
+		      		<tr>
+		      			<td><label>Nombre del curso:  </label></td>
+		      		</tr>
+		      		<tr>
+		      			<td><input type="text" name="nombre" class="form-control" placeholder="nombre" </input></td>
+		      		</tr>
+		      		<tr>
+		      			<td><label>Nombre del asesor: </label></td>
+		      		</tr>
+		      		<tr>
+		      			<td><input type="text" name="nombreAsesor" class="form-control" placeholder="nombre del asesor"></input></td>
+		      		</tr>
+		      		<tr>
+		      			<td><label>Descripción: </label></td>
+		      		</tr>
+		      		<tr>
+		      			<td><input type="text" name="descripcion" class="form-control" placeholder="descripcion"></input></td>
+		      			<td><input type="text" name="correo" value="<?php $correo; ?>"></input></td>
+		      		</tr>
+		      		<tr>
+		      			<td><input type="submit" class="btn btn-default" value="Crear curso"></input></td>
+		      		</tr>
+		      	</table>
+		      </form>
 		</div>
 
 				<div id="tutorial" class="col-sm-10 text-left">
-				      <h2>Crear nuevo turorial</h2>
-				      <p>Aqui va formulario para nuevo turorial</p>
-				      <hr>
-							<hr>
+						<br><br><br><br><br><br>
+				      <h2>Crear nuevo tutorial</h2>
+				      <form  action="crearCurso.php" method="post">
+				      	<table>
+				      		<tr>
+				      			<td><label>Nombre del tutorial: </label></td>
+				      		</tr>
+				      		<tr>
+				      			<td><input type="text" name="nombre" class="form-control" placeholder="nombre del tutorial"></input></td>
+				      		</tr>
+				       		<tr>
+				      			<td><label>Descripción: </label></td>
+				      		</tr>
+				      		<tr>
+				      			<td><input type="text" name="descripcion" class="form-control" placeholder="descripcion"></input></td>
+				      		</tr>
+				      		<tr>
+				      			<select>
+				      				<?php while($reg_curso = mysql_fetch_array($res_curso)) { ?>
+				      				 <option value=" <?php echo $reg_curso['nombre']; ?> "></option>
+				      				 <?php
+				      				 } 
+				      				 ?>
+				      			</select>
+				      		</tr>
+				      		<tr>
+				      			<td><input type="submit" class="btn btn-default" value="Enviar"></input></td>
+				      		</tr>
+				      	</table>
+				      </form>
 				</div>
 
 		</div>

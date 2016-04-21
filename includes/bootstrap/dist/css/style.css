@@ -102,3 +102,14 @@ video{
 body{
   padding: 70px;
 }
+
+#curso{
+  padding-top: 50px;
+  min-width: 100%;
+  min-height: 720px;
+}
+#tutorial{
+  padding-top: 70px;
+  min-width: 100%;
+  min-height: 720px;
+}

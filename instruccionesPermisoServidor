@@ -1,0 +1,13 @@
+know this is an old thread, but it needs a better answer. You shouldn't need to set the permissions to 777, that is a security problem as it gives read and write access to the world. It may be that your apache user does not have read/write permissions on the directory.
+
+Here's what you do in Ubuntu
+
+Make sure all files are owned by the Apache group and user. In Ubuntu it is the www-data group and user
+
+chown -R www-data:www-data /var/www/html/ProyectoSDU3/cursos/
+
+Next enabled all members of the www-data group to read and write files
+
+chmod -R g+rw /var/www/html/ProyectoSDU3/cursos/
+
+The php mkdir() function should now work without returning errors

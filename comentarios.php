@@ -1,10 +1,10 @@
 <?php
 require_once('includes/conexion.php');
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$tel = $_POST['telefono'];
-$com = $_POST['comentario'];
-$sql="INSERT into comentarios VALUES (null,'$nombre','$correo','$tel','$com')";
+$id_usuario = $_POST['id_usuario'];
+$id_tutorial = $_POST['id_tutorial'];
+$id_curso = $_POST['id_curso'];
+$comentario = $_POST['comentario'];
+$sql="INSERT into Comentario VALUES (null,'$comentario',$id_usuario,$id_tutorial,now())";
 $res=mysql_query($sql,$con) or die (mysql_error());
-header("Location: contacto.php");
+header("Location: tutoriales.php?id_curso=$id_curso&id_tutorial=$id_tutorial");
 ?>

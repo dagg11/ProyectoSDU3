@@ -48,7 +48,7 @@ INSERT INTO Tutorial VALUES (null,'Herencia','Aprende lo básico sobre herencia 
 INSERT INTO Tutorial VALUES (null,'Aprendiendo C++','C++ desde cero, aprende lo básico sobre C++',1,3);
 INSERT INTO Tutorial VALUES (null,'Aprendiendo bases de datos','Bases de datos desde cero, aprende lo básico sobre bases de datos',1,4);
 
-create table recursos (
+create table Recurso (
   id_recurso int NOT NULL AUTO_INCREMENT,
   nombre_recurso varchar(50) not null,
   id_tutorial int not null,
@@ -61,6 +61,7 @@ CREATE TABLE Comentario (
   comentario varchar(200),
   id_usuario int NOT NULL,
   id_tutorial int NOT NULL,
+  fecha timestamp,
   PRIMARY KEY (id_comentario),
   FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
   FOREIGN KEY (id_tutorial) REFERENCES Tutorial (id_tutorial)

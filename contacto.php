@@ -81,39 +81,7 @@ require_once('includes/conexion.php');
 
       </div>
 
-      <?php
-	$sql = "select * from comentarios;";
-	$res = mysql_query($sql,$con);
-
-?>
-        <div class="col-sm-10">
-          <h1 align="center">Comentarios</h1>
-          <div class="row">
-            <hr>
-          </div>
-          <div class="row">
-            <?php
-			while($reg = mysql_fetch_array($res)){
-			 ?>
-              <hr>
-          </div>
-          <div class="row">
-            <b>
-			<?php
-			echo $reg['nombre'];
-			?>
-			</b>
-            <p>
-              <?php
-			echo $reg['comentario'];
-			}
-			 ?>
-            </p>
-            <hr>
-          </div>
-        </div>
-        <?
-?>
+        
 
     </div>
 

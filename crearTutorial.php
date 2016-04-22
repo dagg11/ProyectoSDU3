@@ -37,6 +37,7 @@
         foreach ($file_ary as $file) {
           if ($counter == 1) {
             $ficheroSubida = $directorioTutorial.basename($regTuto['id_tutorial'].".mp4");
+            $counter++;
           }else{
             $ficheroSubida = $directorioTutorial.basename($file['name']);
           }

@@ -130,12 +130,13 @@ if(!$_GET){
 				</div>
 				<?php
 				}
-			} else 
+			} else { 
 			?>
 								<div class="panel panel-default col-md-8 col-md-offset-2"> 
 								<?php echo "No hay comentarios"; ?> 
 								</div>
-
+								<?php 
+								} ?>
 
 
 			</div>

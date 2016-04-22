@@ -175,14 +175,9 @@
 
 
 
-  <script type="text/javascript" src="includes/js/jquery.js"></script>
-  <script type="text/javascript" src="includes/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="includes/js/jquery.validate.js"></script>
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="includes/bootstrap/assets/js/jquery.js"></script>
-  <script src="includes/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="includes/bootstrap/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="includes/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

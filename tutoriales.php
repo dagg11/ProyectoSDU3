@@ -35,31 +35,54 @@ if(!$_GET){
 	<body>
 
 		<div class="row">
-			<div class="panel panel-default col-md-8 col-md-offset-2">
+			<div class="panel panel-default col-md-8 col-md-offset-1">
 				<div class="panel-heading">
 					<h3 class="panel-title"><?php echo "Curso ".$reg2['nombre_curso']." - ".$reg['nombre_tutorial'] ?></h3>
 				</div>
 				<div class="panel-body">
 					<video controls>
-						<source src="<?php echo 'cursos/'.$curso.'/'.$tutorial.'.mp4'; ?>" type="video/mp4">
+						<source src="<?php echo 'cursos/'.$curso.'/'.$reg['numero'].'/'.$tutorial.'.mp4'; ?>" type="video/mp4">
 						</video>
 
 						<h3 class="text-danger">Descripción</h3>
+
 						<?php echo $reg['descripcion_tutorial']; ?>
 					</div>
 
-					<div class="panel-footer">
-						<a href="<?php echo 'cursos/'.$curso.'/'.$tutorial.'.mp4'; ?>" class="btn btn-default" download="<?php echo $reg2['nombre_curso'].' - '.$reg['nombre_tutorial'].'.mp4'; ?>"> Descargar </a>
+				</div>
+
+				<div class="panel panel-default col-md-3" id="panel-descargas">
+					<div class="panel-heading">
+						<h4 class="panel-title">Zona de descargas</h4>
+					</div>
+					<div class="panel-body">
+					<!--<a href="<?php echo 'cursos/'.$curso.'/'.$reg['numero'].'/'.$tutorial.'.mp4'; ?>" class="btn btn-default btn-download" download="<?php echo $reg2['nombre_curso'].' - '.$reg['nombre_tutorial'].'.mp4'; ?>"> Descargar Video</a>-->
+					<?php
+						$directorio1 = opendir('cursos/'.$curso.'/'.$reg['numero'].'/'); //ruta actual
+						$directorio ='cursos/'.$curso.'/'.$reg['numero'].'/';
+						while ($archivo = readdir($directorio1)) //obtenemos un archivo y luego otro sucesivamente
+						{
+						    if (is_dir($archivo))//verificamos si es o no un directorio
+						    {
+						        //echo "[".$archivo . "]<br />"; //de ser un directorio lo envolvemos entre corchetes
+						    }
+						    else
+						    {
+						        echo "<a href='".$directorio.$archivo."' download='".$directorio.$archivo."' class='btn btn-default btn-download'> Descargar ".$archivo."</a>";
+						    }
+						}
+					?>
+
 					</div>
 				</div>
 			</div>
 
 
 			<div class="row">
-				<div class="panel panel-default col-md-8 col-md-offset-2">
+				<div class="panel panel-default col-md-8 col-md-offset-1">
 					<h3>Comentarios</h3>
 					<br>
-					<?php 
+					<?php
 					if(isset($_SESSION['nombre'])){
 					 ?>
 					<form action="comentarios.php" method="post" class="form-horizontal" role="form">
@@ -77,22 +100,19 @@ if(!$_GET){
 							</div>
 						</div>
 					</form>
-					<?php 
+					<?php
 						}
 					 ?>
 				</div>
 			</div>
-				<?php 
-				$correo = $_SESSION['nombre'];
-				/*$sql_idU = "select id_usuario from Usuario where correo = '$correo'";
-				$res_idU = mysql_query($sql_idU,$con);
-				$id_usuario*/ 
+				<?php
+
 				$sql_comentario = "select * from Comentario, Tutorial where Comentario.id_tutorial = $tutorial and Tutorial.id_tutorial = $tutorial order by Comentario.fecha desc";
 				$res_comentario = mysql_query($sql_comentario,$con);
 				 ?>
 			<div class="row">
-				
-				<?php 
+
+				<?php
 				while($reg_comentario = mysql_fetch_array($res_comentario)){
 					?>
 					<div class="panel panel-default col-md-8 col-md-offset-2">
@@ -109,9 +129,9 @@ if(!$_GET){
 				<?php
 				}
 				 ?>
-				
 
-				
+
+
 			</div>
 
 

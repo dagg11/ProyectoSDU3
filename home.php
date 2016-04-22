@@ -17,8 +17,9 @@ if($_SESSION['nombre']){
     <link rel="stylesheet" href="includes/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/bootstrap/dist/css/navbar-fixed-top.css">
     <link rel="stylesheet" href="includes/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="includes/bootstrap/dist/css/css/style.css">
+    <link rel="stylesheet" href="includes/bootstrap/dist/css/style.css">
     <link rel="shortcut icon" href="includes/bootstrap/assets/ico/favicon.png">
+
   </head>
 
   <body>
@@ -62,32 +63,38 @@ if($_SESSION['nombre']){
       <div class="row">
         <div id="tutorial" class="">
           <div class="col-md-8 col-md-offset-2">
+            <form action="crearTutorial.php" enctype="multipart/form-data" method="post" >
             <legend><h2>Crear nuevo tutorial</h2></legend>
-            <form action="crearTutorial.php" method="post">
+            <!--<form action="crearTutorial.php" method="post">-->
               <div class="form-group">
                 <label for="nombre">Nombre del tutorial: </label>
-                <input type="text" name="nombre" class="form-control" placeholder="nombre del tutorial">
+                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="nombre del tutorial">
               </div>
               <div class="form-group">
                 <label for="descripcion">Descripción: </label>
-                <input type="text" name="descripcion" class="form-control" placeholder="descripcion">
+                <input type="text" name="descripcion" class="form-control" id="descripcion"placeholder="descripcion">
               </div>
 
               <div class="form-group">
                 <label for="archivos">Recursos del Tutorial</label>
-                <input type="file" multiple="multiple" name="archivos" id="archivos" class="">
+                <input name='archivos[0]' type='file'  id='archivos' accept="video/mp4" multiple>
+                <div class="" id="recursos">
+
+                </div>
+                <a  id="agregar"> + Agregar otro Recurso </a>
+                <!--<input type="file" multiple="multiple" name="archivos" id="archivos" >-->
               </div>
               <div class="form-group">
                 <label for="cursos">Curso al que pertenece</label>
                 <select name="cursos" class="form-control">
                   <?php while($reg_curso = mysql_fetch_array($resCursos)) { ?>
-                  <option value="<?php echo $reg_curso['id_curso']; ?>"><?php echo $reg_curso['nombre_curso']; ?></option>
+                    <option value="<?php echo $reg_curso['id_curso']; ?>"><?php echo $reg_curso['nombre_curso']; ?></option>
                   <?php	 } ?>
                 </select>
               </div>
-              <input type="submit" class="btn btn-default" value="Enviar"></input>
-
+              <input type="submit" class="btn btn-default" value="Enviar" id="enviar">
             </form>
+            <!--</form>-->
           </div>
         </div>
       </div>
@@ -102,6 +109,8 @@ if($_SESSION['nombre']){
 
       <script src="includes/bootstrap/assets/js/jquery.js"></script>
       <script src="includes/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="includes/script.js"> </script>
+
   </body>
 
   </html>

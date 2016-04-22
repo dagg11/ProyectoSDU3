@@ -16,10 +16,6 @@ if(!$_GET){
 	$res2 = mysql_query($sql2,$con) or die("Error consultando: ".mysql_error());
 	$reg2 = mysql_fetch_array($res2) or die("Error al convertir los registros");
 
-	$sql_idU = "select id_usuario from Usuario where correo = '$correo'";
-	$res_idU = mysql_query($sql_idU,$con);
-	$reg_idU = mysql_fetch_array($res_idU);
-	$id_usuario = $reg_idU['0'];
 
 ?>
 	<!DOCTYPE html>
@@ -84,6 +80,11 @@ if(!$_GET){
 					<br>
 					<?php
 					if(isset($_SESSION['nombre'])){
+						$correo = $_SESSION['nombre'];
+	$sql_idU = "select id_usuario from Usuario where correo = '$correo'";
+	$res_idU = mysql_query($sql_idU,$con);
+	$reg_idU = mysql_fetch_array($res_idU);
+	$id_usuario = $reg_idU['0'];
 					 ?>
 					<form action="comentarios.php" method="post" class="form-horizontal" role="form">
 						<div class="input-group">

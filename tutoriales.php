@@ -114,6 +114,8 @@ if(!$_GET){
 			<div class="row">
 
 				<?php
+
+				if (mysql_num_rows($res_comentario) > 0){
 				while($reg_comentario = mysql_fetch_array($res_comentario)){
 					?>
 					<div class="panel panel-default col-md-8 col-md-offset-2">
@@ -129,6 +131,12 @@ if(!$_GET){
 				</div>
 				<?php
 				}
+			} else { ?>
+				<div class="panel panel-default col-md-8 col-md-offset-2">
+					<?php echo "No hay comentarios"; ?>
+				</div>
+				<?php
+			}
 				 ?>
 
 

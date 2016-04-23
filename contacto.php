@@ -18,29 +18,25 @@ require_once('includes/conexion.php');
   <body>
     <div class="container">
       <div class="col-sm-7">
-        <h1>Déjanos un comentario</h1>
+        <h1>Dejanos un mensaje</h1>
         <br>
-        <form action="comentarios.php" method="post" class="form-horizontal" role="form">
+        <form action="emailWebMaster.php" method="post" class="form-horizontal" role="form">
 
 
           <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input class="form-control" name="nombre" type="text" placeholder="Nombre">
+            <input class="form-control" name="nombre" type="text" placeholder="¿Cual es tu nombre?">
           </div>
           <br>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input class="form-control" name="correo" type="email" placeholder="Correo">
+            <input class="form-control" name="correo" type="email" placeholder="¿Cual es tu correo?">
           </div>
           <br>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input class="form-control" name="telefono" type="text" placeholder="Telefono">
-          </div>
-          <br>
+
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-            <textarea class="form-control" name="comentario" rows="7" id="comment" placeholder="Comentario"></textarea>
+            <textarea class="form-control" name="cuerpo" rows="7" id="cuerpo" placeholder="¿Que nos quieres compartir?"></textarea>
           </div>
           <br>
 
@@ -81,7 +77,7 @@ require_once('includes/conexion.php');
 
       </div>
 
-        
+
 
     </div>
 

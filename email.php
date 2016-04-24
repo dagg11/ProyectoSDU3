@@ -30,8 +30,8 @@ $headers .= "Reply-To: ".$correo."\r\n";
 //direcciones que recibirán copia oculta
 //$headers .= "Bcc: pepe@pepe.com,juan@juan.com\r\n";
 
-//mail($destinatario,$asunto,$cuerpo,$headers) or die("Error enviando el mensaje al Administrador");
-echo $destinatario." ".$asunto." ".$cuerpo." ".$headers;;
+mail($destinatario,$asunto,$cuerpo,$headers) or die("Error enviando el mensaje al Administrador");
+//echo $destinatario." ".$asunto." ".$cuerpo." ".$headers;;
 echo "Correo enviado";
 }
  ?>

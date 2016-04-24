@@ -20,7 +20,7 @@ require_once('includes/conexion.php');
       <div class="col-sm-7">
         <h1>Dejanos un mensaje</h1>
         <br>
-        <form action="emailWebMaster.php" method="post" class="form-horizontal" role="form">
+        <form action="email.php" method="post" class="form-horizontal" role="form">
 
 
           <div class="input-group margin-bottom-sm">
@@ -33,6 +33,9 @@ require_once('includes/conexion.php');
             <input class="form-control" name="correo" type="email" placeholder="¿Cual es tu correo?">
           </div>
           <br>
+
+            <input class="form-control" name="destinatario" type="hidden" value="minsau2@gmail.com">
+
 
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>

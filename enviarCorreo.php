@@ -24,11 +24,7 @@ session_start();
           <legend> <h3 class="text-primary">Enviar mensaje </h3></legend>
           <div class="form-group">
             <label for="destinatario">Destinatario</label>
-            <select name="destinatario" class="form-control">
-              <?php while($regUsuarios = mysql_fetch_array($resUsuarios)){ ?>
-                <option value="<?php echo $regUsuarios['correo']; ?>"> <?php echo $regUsuarios['nombre_usuario']." ".$regUsuarios['primer_apellido']." ".$regUsuarios['segundo_apellido']."&lt;".$regUsuarios['correo']."&gt;"; ?> </option>
-              <?php } ?>
-            </select>
+            <input type="email" name="destinatario" placeholder="" class="form-control">
           </div>
           <input type="hidden" name="correo" value="<?php echo $_SESSION['nombre']; ?>">
           <input type="hidden" name="nombre" value="<?php echo $regU['nombre_usuario']." ".$regU['primer_apellido']." ".$regU['segundo_apellido']; ?>">

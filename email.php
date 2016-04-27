@@ -16,10 +16,11 @@ $nombre = $_POST['nombre'];
 //$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
 //dirección del remitente
-$headers = "From: ".$nombre."\r\n";
+$headers = "From: ".$correo."\r\n";
 
+$primer = explode($correo,'@');
 //dirección de respuesta, si queremos que sea distinta que la del remitente
-$headers .= "Reply-To: ".$correo."\r\n";
+$headers .= "Reply-To: ".$nombre."\r\n";
 
 //ruta del mensaje desde origen a destino
 //$headers .= "Return-path: holahola@desarrolloweb.com\r\n";
@@ -30,8 +31,15 @@ $headers .= "Reply-To: ".$correo."\r\n";
 //direcciones que recibirán copia oculta
 //$headers .= "Bcc: pepe@pepe.com,juan@juan.com\r\n";
 
-mail($destinatario,$asunto,$cuerpo,$headers) or die("Error enviando el mensaje al Administrador");
+if(mail($destinatario,$asunto,$cuerpo,$headers) or die("Error enviando el mensaje al Administrador")){
+  echo "Correo enviado<br>";
+  echo "$destinatario";
+  //header("Location: enviarCorreo.php");
+
+}else{
+  die();
+}
 //echo $destinatario." ".$asunto." ".$cuerpo." ".$headers;;
-echo "Correo enviado";
+
 }
  ?>

@@ -34,7 +34,8 @@ require_once('includes/conexion.php');
           </div>
           <br>
 
-            <input class="form-control" name="destinatario" type="hidden" value="minsau2@gmail.com">
+            <input class="form-control" name="destinatario" type="hidden" value="administrador@james.com">
+            <input class="form-control" name="asunto" type="hidden" value="Soporte">
 
 
           <div class="input-group">
